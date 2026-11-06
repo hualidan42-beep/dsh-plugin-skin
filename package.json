@@ -1,0 +1,57 @@
+{
+  "name": "dsh-plugin-skin",
+  "version": "0.7.0",
+  "description": "主题与外观：13 套皮肤（含 5 套办公风）、插画与纯 CSS 纹理壁纸、跨插件换肤契约、三页签独立框体面板、六态桌宠（右键菜单 / 甩动 / 任务完场播报），并可把它放到 Windows 桌面常驻。",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "assets/*.webp",
+    "assets/pet-desktop-*.png",
+    "desktop/pet.ps1",
+    "desktop/start-pet.cmd",
+    "package.json"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "author": "孙爱珍",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "theme",
+    "wallpaper",
+    "desktop-pet"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hualidan42-beep/dsh-plugin-skin.git"
+  },
+  "homepage": "https://github.com/hualidan42-beep/dsh-plugin-skin#readme",
+  "scripts": {
+    "verify": "node verify/client-harness.mjs && node verify/pet-content.mjs && node verify/host-route.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "renderer",
+        "layout",
+        "sidebar"
+      ]
+    }
+  }
+}

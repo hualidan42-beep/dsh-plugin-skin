@@ -1,0 +1,4 @@
+# Load the browser half into the DSH web profile.
+- insert:
+  - id: skin
+    name: 'dsh-plugin-skin'
